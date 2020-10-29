@@ -1,11 +1,12 @@
 import "./styles/global.css";
 import logo from "./images/logo.png";
+import { Layout } from "./components/Layout";
 
 function App() {
   return (
-    <div className="App">
+    <Layout>
       <img src={logo} alt="logo" />
-    </div>
+    </Layout>
   );
 }
 
