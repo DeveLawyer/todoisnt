@@ -1,0 +1,30 @@
+.container {
+  width: 50%;
+  margin: 0 auto;
+  // background-color: lightgreen;
+
+  .title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .addBtn {
+    background: transparent;
+    border: none;
+    font-weight: normal;
+    font-size: 1.1rem;
+  }
+
+  .completedContainer {
+    text-align: right;
+
+    .completedBtn {
+      background: transparent;
+      border: none;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-top: 2.5rem;
+    }
+  }
+}

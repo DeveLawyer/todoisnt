@@ -1,12 +1,18 @@
 import "./styles/global.css";
-import logo from "./images/logo.png";
-import { Layout } from "./components/Layout";
+import MainContainer from "./components/MainContainer";
+import Header from "./components/Header";
+import TaskBoard from "./components/TaskBoard";
 
 function App() {
   return (
-    <Layout>
-      <img src={logo} alt="logo" />
-    </Layout>
+    <div className="app">
+      <Header />
+      <MainContainer>
+        <TaskBoard>
+          <p>Task 1</p>
+        </TaskBoard>
+      </MainContainer>
+    </div>
   );
 }
 

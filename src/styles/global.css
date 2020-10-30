@@ -4,6 +4,8 @@
 
 body {
   font-family: "Lato", sans-serif;
+  margin: 0;
   padding: 2rem;
   background-color: whitesmoke;
+  color: #2d3748;
 }
