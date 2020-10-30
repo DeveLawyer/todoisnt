@@ -3,8 +3,7 @@ import styles from "../styles/todo.module.scss";
 
 const Todo = ({ todo, onUpdateTodo }) => {
   function handleChange() {
-    todo.isCompleted = !todo.isCompleted;
-    onUpdateTodo(todo);
+    onUpdateTodo(todo.id);
   }
 
   return (

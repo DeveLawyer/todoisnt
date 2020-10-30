@@ -12,8 +12,21 @@ const MainContainer = () => {
   }
 
   // Updates isCompleted property
-  function updateTodos(todo) {
-    setTodos([...todos]);
+  function updateTodos(id) {
+    const newTodos = todos.map((todo) => {
+      if (id === todo.id) {
+        const updatedTodo = {
+          ...todo,
+          isCompleted: !todo.isCompleted,
+        };
+
+        return updatedTodo;
+      }
+
+      return todo;
+    });
+
+    setTodos(newTodos);
   }
 
   return (
