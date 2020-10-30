@@ -3,6 +3,19 @@ import styles from "../styles/task-board.module.scss";
 
 const TaskBoard = ({ children }) => {
   const [displayForm, setDisplayForm] = React.useState(false);
+  const [taskId, setTaskId] = React.useState(1);
+  const [tasks, setTasks] = React.useState([]);
+
+  function handleTaskSubmit(event) {
+    event.preventDefault();
+    const { todo } = event.target.elements;
+    const newTask = {
+      id: taskId,
+      description: todo.value,
+    };
+    setTasks([...tasks, newTask]);
+    setTaskId(taskId + 1);
+  }
 
   return (
     <section className={styles.container}>
@@ -12,17 +25,20 @@ const TaskBoard = ({ children }) => {
 
       <div>
         {displayForm ? (
-          <form>
+          <form onSubmit={handleTaskSubmit}>
             <div>
               <input
                 type="text"
                 aria-label="new todo"
                 placeholder="Write a todo..."
+                id="todo"
               />
             </div>
             <div>
-              <button>Ok</button>
-              <button onClick={() => setDisplayForm(false)}>Cancel</button>
+              <button type="submit">Add</button>
+              <button type="button" onClick={() => setDisplayForm(false)}>
+                Cancel
+              </button>
             </div>
           </form>
         ) : (
@@ -30,7 +46,7 @@ const TaskBoard = ({ children }) => {
             className={styles.addBtn}
             onClick={() => setDisplayForm(true)}
           >
-            <i class="fas fa-plus"></i> Add task
+            <i className="fas fa-plus"></i> Add task
           </button>
         )}
       </div>
