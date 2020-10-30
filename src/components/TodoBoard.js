@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 import styles from "../styles/todo-board.module.scss";
 
 const TodoBoard = ({ todos, onTodosChange, children }) => {
@@ -23,24 +24,37 @@ const TodoBoard = ({ todos, onTodosChange, children }) => {
     <section className={styles.container}>
       <h2 className={styles.title}>Todos</h2>
 
-      <div>{children}</div>
+      <div>
+        <ul className={styles.list}>{children}</ul>
+      </div>
 
       <div>
         {displayForm ? (
-          <form onSubmit={handleTodoSubmit}>
+          <form
+            className={styles.form}
+            onSubmit={handleTodoSubmit}
+            autoComplete="off"
+          >
             <div>
               <input
+                className={styles.input}
                 type="text"
-                aria-label="new todo form"
+                aria-label="new todo input"
                 placeholder="Write a todo..."
                 id="todo"
               />
             </div>
             <div>
-              <button type="submit">Add</button>
-              <button type="button" onClick={() => setDisplayForm(false)}>
+              <Button isPrimary={true} type="submit">
+                Add
+              </Button>
+              <Button
+                isPrimary={false}
+                type="button"
+                onClick={() => setDisplayForm(false)}
+              >
                 Cancel
-              </button>
+              </Button>
             </div>
           </form>
         ) : (

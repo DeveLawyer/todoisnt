@@ -1,4 +1,8 @@
-.container {
+.mainContainer {
   width: 100%;
-  // background-color: lightcoral;
+
+  .todosContainer {
+    max-width: 600px;
+    margin: 0 auto;
+  }
 }

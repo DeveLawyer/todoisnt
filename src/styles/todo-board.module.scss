@@ -1,12 +1,37 @@
 .container {
-  width: 50%;
-  margin: 0 auto;
-  // background-color: lightgreen;
+  width: 100%;
 
   .title {
     font-weight: 700;
     font-size: 1.2rem;
     margin-bottom: 2rem;
+  }
+
+  .list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .form {
+    .input {
+      font-family: "Lato", sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      color: #1a202c;
+      border: 1px solid dodgerblue;
+      border-radius: 0.25rem;
+      margin-bottom: 0.5rem;
+      padding: 0.4rem 0.5rem;
+      outline: none;
+      width: 100%;
+
+      &::placeholder {
+        font-family: "Lato", sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        color: #718096;
+      }
+    }
   }
 
   .addBtn {
@@ -16,7 +41,7 @@
     font-size: 1.1rem;
 
     .icon {
-      margin-right: 8px;
+      margin-right: 0.5rem;
     }
   }
 }
