@@ -29,24 +29,24 @@ const MainContainer = () => {
     setTodos(newTodos);
   }
 
+  function displayTodos(status) {
+    todos
+      .filter((filteredTodo) =>
+        status === "done" ? filteredTodo.isCompleted : !filteredTodo.isCompleted
+      )
+      .map((todo) => {
+        return <Todo key={todo.id} todo={todo} onUpdateTodo={updateTodos} />;
+      });
+  }
+
   return (
     <main className={styles.mainContainer}>
       <div className={styles.todosContainer}>
         <TodoBoard todos={todos} onTodosChange={onTodosChange}>
-          {todos
-            .filter((filteredTodo) => !filteredTodo.isCompleted)
-            .map((todo) => (
-              <Todo key={todo.id} todo={todo} onUpdateTodo={updateTodos} />
-            ))}
+          {displayTodos("todo")}
         </TodoBoard>
 
-        <DoneBoard>
-          {todos
-            .filter((filteredTodo) => filteredTodo.isCompleted)
-            .map((todo) => (
-              <Todo key={todo.id} todo={todo} onUpdateTodo={updateTodos} />
-            ))}
-        </DoneBoard>
+        <DoneBoard>{displayTodos("done")}</DoneBoard>
       </div>
     </main>
   );
