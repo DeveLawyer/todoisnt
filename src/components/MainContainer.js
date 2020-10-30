@@ -11,6 +11,7 @@ const MainContainer = () => {
     setTodos(todos);
   }
 
+  // Updates isCompleted property
   function updateTodos(todo) {
     setTodos([...todos]);
   }
