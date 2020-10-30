@@ -1,20 +1,22 @@
 import React from "react";
-import styles from "../styles/task-board.module.scss";
+import styles from "../styles/todo-board.module.scss";
 
-const TaskBoard = ({ children }) => {
+const TodoBoard = ({ todos, onTodosChange, children }) => {
   const [displayForm, setDisplayForm] = React.useState(false);
-  const [taskId, setTaskId] = React.useState(1);
-  const [tasks, setTasks] = React.useState([]);
+  const [todoId, setTodoId] = React.useState(1);
 
-  function handleTaskSubmit(event) {
+  function handleTodoSubmit(event) {
     event.preventDefault();
     const { todo } = event.target.elements;
-    const newTask = {
-      id: taskId,
+
+    const newTodo = {
+      id: todoId,
       description: todo.value,
+      isCompleted: false,
     };
-    setTasks([...tasks, newTask]);
-    setTaskId(taskId + 1);
+
+    onTodosChange([...todos, newTodo]);
+    setTodoId(todoId + 1);
   }
 
   return (
@@ -25,11 +27,11 @@ const TaskBoard = ({ children }) => {
 
       <div>
         {displayForm ? (
-          <form onSubmit={handleTaskSubmit}>
+          <form onSubmit={handleTodoSubmit}>
             <div>
               <input
                 type="text"
-                aria-label="new todo"
+                aria-label="new todo form"
                 placeholder="Write a todo..."
                 id="todo"
               />
@@ -46,16 +48,12 @@ const TaskBoard = ({ children }) => {
             className={styles.addBtn}
             onClick={() => setDisplayForm(true)}
           >
-            <i className="fas fa-plus"></i> Add task
+            <i className={`fas fa-plus ${styles.icon}`}></i>Add task
           </button>
         )}
-      </div>
-
-      <div className={styles.completedContainer}>
-        <button className={styles.completedBtn}>Show completed</button>
       </div>
     </section>
   );
 };
 
-export default TaskBoard;
+export default TodoBoard;
