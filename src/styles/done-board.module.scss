@@ -1,12 +1,14 @@
-.completedContainer {
-  text-align: right;
+.doneContainer {
+  .btnContainer {
+    text-align: right;
 
-  .completedBtn {
-    background: transparent;
-    border: none;
-    color: #383a3f;
-    font-weight: 700;
-    font-size: 1rem;
-    margin-top: 2.5rem;
+    .completedBtn {
+      background: transparent;
+      border: none;
+      color: #383a3f;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-top: 2.5rem;
+    }
   }
 }

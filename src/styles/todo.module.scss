@@ -5,4 +5,19 @@
   .checkbox {
     margin-right: 0.8rem;
   }
+
+  .label {
+    font-weight: normal;
+    font-size: 1.1rem;
+    color: #1f2124;
+  }
+
+  &.isDone {
+    border-bottom: 1px solid rgba(45, 55, 72, 0.5);
+
+    label {
+      text-decoration: line-through;
+      color: rgba(31, 33, 36, 0.5);
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import TodoList from "./TodoList";
 import styles from "../styles/todo-board.module.scss";
 
 const TodoBoard = ({ todos, onTodosChange, children }) => {
@@ -24,9 +25,7 @@ const TodoBoard = ({ todos, onTodosChange, children }) => {
     <section className={styles.container}>
       <h2 className={styles.title}>Todos</h2>
 
-      <div>
-        <ul className={styles.list}>{children}</ul>
-      </div>
+      <TodoList>{children}</TodoList>
 
       <div>
         {displayForm ? (

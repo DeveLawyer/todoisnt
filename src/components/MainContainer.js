@@ -11,6 +11,10 @@ const MainContainer = () => {
     setTodos(todos);
   }
 
+  function updateTodos(todo) {
+    setTodos([...todos]);
+  }
+
   return (
     <main className={styles.mainContainer}>
       <div className={styles.todosContainer}>
@@ -18,10 +22,17 @@ const MainContainer = () => {
           {todos
             .filter((filteredTodo) => !filteredTodo.isCompleted)
             .map((todo) => (
-              <Todo key={todo.id} description={todo.description} />
+              <Todo key={todo.id} todo={todo} onUpdateTodo={updateTodos} />
             ))}
         </TodoBoard>
-        <DoneBoard></DoneBoard>
+
+        <DoneBoard>
+          {todos
+            .filter((filteredTodo) => filteredTodo.isCompleted)
+            .map((todo) => (
+              <Todo key={todo.id} todo={todo} onUpdateTodo={updateTodos} />
+            ))}
+        </DoneBoard>
       </div>
     </main>
   );
