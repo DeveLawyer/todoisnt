@@ -3,12 +3,21 @@ import TodoList from "./TodoList";
 import styles from "../styles/done-board.module.scss";
 
 const DoneBoard = ({ children }) => {
+  const [hidden, setHidden] = React.useState(true);
+
   return (
     <div className={styles.doneContainer}>
       <div className={styles.btnContainer}>
-        <button className={styles.completedBtn}>Show completed</button>
+        <button
+          className={styles.completedBtn}
+          onClick={() => setHidden(!hidden)}
+        >
+          {hidden ? "Show completed" : "Hide completed"}
+        </button>
       </div>
-      <TodoList>{children}</TodoList>
+      <div className={hidden ? styles.hiddenContainer : null}>
+        <TodoList>{children}</TodoList>
+      </div>
     </div>
   );
 };

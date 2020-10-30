@@ -9,6 +9,12 @@
       font-weight: 700;
       font-size: 1rem;
       margin-top: 2.5rem;
+      outline: none;
+      cursor: pointer;
     }
+  }
+
+  .hiddenContainer {
+    display: none;
   }
 }
