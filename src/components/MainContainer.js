@@ -30,13 +30,13 @@ const MainContainer = () => {
   }
 
   function displayTodos(status) {
-    todos
+    return todos
       .filter((filteredTodo) =>
         status === "done" ? filteredTodo.isCompleted : !filteredTodo.isCompleted
       )
-      .map((todo) => {
-        return <Todo key={todo.id} todo={todo} onUpdateTodo={updateTodos} />;
-      });
+      .map((todo) => (
+        <Todo key={todo.id} todo={todo} onUpdateTodo={updateTodos} />
+      ));
   }
 
   return (
