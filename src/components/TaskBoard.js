@@ -2,22 +2,43 @@ import React from "react";
 import styles from "../styles/task-board.module.scss";
 
 const TaskBoard = ({ children }) => {
+  const [displayForm, setDisplayForm] = React.useState(false);
+
   return (
-    <main className={styles.container}>
+    <section className={styles.container}>
       <h2 className={styles.title}>Todos</h2>
 
       <div>{children}</div>
 
       <div>
-        <button className={styles.addBtn}>
-          <i class="fas fa-plus"></i> Add task
-        </button>
+        {displayForm ? (
+          <form>
+            <div>
+              <input
+                type="text"
+                aria-label="new todo"
+                placeholder="Write a todo..."
+              />
+            </div>
+            <div>
+              <button>Ok</button>
+              <button onClick={() => setDisplayForm(false)}>Cancel</button>
+            </div>
+          </form>
+        ) : (
+          <button
+            className={styles.addBtn}
+            onClick={() => setDisplayForm(true)}
+          >
+            <i class="fas fa-plus"></i> Add task
+          </button>
+        )}
       </div>
 
       <div className={styles.completedContainer}>
         <button className={styles.completedBtn}>Show completed</button>
       </div>
-    </main>
+    </section>
   );
 };
 
