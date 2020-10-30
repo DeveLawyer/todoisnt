@@ -1,5 +1,6 @@
-# Todoisnt
+## Todoisnt
 
-No matter how cliché it is... Of course I needed my own todo-app!
+No matter how cliché it is... Of course I needed my own todo-app! 
+I made it in React and used CSS modules and SASS for the styling.
 
-[Todoisnt](https://develawyer-todoisnt.netlify.app/)
+Link: [Todoisnt](https://develawyer-todoisnt.netlify.app/)
