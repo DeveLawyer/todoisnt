@@ -6,6 +6,7 @@ import styles from "../styles/todo-board.module.scss";
 const TodoBoard = ({ todos, onTodosChange, children }) => {
   const [displayForm, setDisplayForm] = React.useState(false);
   const [todoId, setTodoId] = React.useState(1);
+  const [inputText, setInputText] = React.useState("");
 
   function handleTodoSubmit(event) {
     event.preventDefault();
@@ -19,6 +20,11 @@ const TodoBoard = ({ todos, onTodosChange, children }) => {
 
     onTodosChange([...todos, newTodo]);
     setTodoId(todoId + 1);
+    setInputText("");
+  }
+
+  function handleOnInputChange(event) {
+    setInputText(event.target.value);
   }
 
   return (
@@ -41,6 +47,9 @@ const TodoBoard = ({ todos, onTodosChange, children }) => {
                 aria-label="new todo input"
                 placeholder="Write a todo..."
                 id="todo"
+                value={inputText}
+                onChange={handleOnInputChange}
+                required
               />
             </div>
             <div>
