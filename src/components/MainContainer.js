@@ -11,7 +11,7 @@ const MainContainer = () => {
     setTodos(todos);
   }
 
-  // Updates isCompleted property
+  // Updates todo.isCompleted property and todos state
   function updateTodos(id) {
     const newTodos = todos.map((todo) => {
       if (id === todo.id) {
