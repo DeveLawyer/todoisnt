@@ -12,7 +12,7 @@ const MainContainer = () => {
   }
 
   // Updates todo.isCompleted property and todos state
-  function updateTodos(id) {
+  function toggleTodo(id) {
     const newTodos = todos.map((todo) => {
       if (id === todo.id) {
         const updatedTodo = {
@@ -35,9 +35,13 @@ const MainContainer = () => {
         status === "done" ? filteredTodo.isCompleted : !filteredTodo.isCompleted
       )
       .map((todo) => (
-        <Todo key={todo.id} todo={todo} onUpdateTodo={updateTodos} />
+        <Todo key={todo.id} todo={todo} onToggleChange={toggleTodo} />
       ));
   }
+
+  // function updateTodo(id) {
+  //   console.log()
+  // }
 
   return (
     <main className={styles.mainContainer}>

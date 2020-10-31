@@ -1,12 +1,11 @@
 import React from "react";
-import Button from "./Button";
 import TodoList from "./TodoList";
+import Form from "./Form";
 import styles from "../styles/todo-board.module.scss";
 
 const TodoBoard = ({ todos, onTodosChange, children }) => {
   const [displayForm, setDisplayForm] = React.useState(false);
   const [todoId, setTodoId] = React.useState(1);
-  const [inputText, setInputText] = React.useState("");
 
   function handleTodoSubmit(event) {
     event.preventDefault();
@@ -20,11 +19,6 @@ const TodoBoard = ({ todos, onTodosChange, children }) => {
 
     onTodosChange([...todos, newTodo]);
     setTodoId(todoId + 1);
-    setInputText("");
-  }
-
-  function handleOnInputChange(event) {
-    setInputText(event.target.value);
   }
 
   return (
@@ -35,36 +29,11 @@ const TodoBoard = ({ todos, onTodosChange, children }) => {
 
       <div>
         {displayForm ? (
-          <form
-            className={styles.form}
-            onSubmit={handleTodoSubmit}
-            autoComplete="off"
-          >
-            <div>
-              <input
-                className={styles.input}
-                type="text"
-                aria-label="new todo input"
-                placeholder="Write a todo..."
-                id="todo"
-                value={inputText}
-                onChange={handleOnInputChange}
-                required
-              />
-            </div>
-            <div>
-              <Button isPrimary={true} type="submit">
-                Add
-              </Button>
-              <Button
-                isPrimary={false}
-                type="button"
-                onClick={() => setDisplayForm(false)}
-              >
-                Cancel
-              </Button>
-            </div>
-          </form>
+          <Form
+            btnName="Add"
+            onHandleSubmit={handleTodoSubmit}
+            onChangeDisplay={setDisplayForm}
+          />
         ) : (
           <button
             className={styles.addBtn}

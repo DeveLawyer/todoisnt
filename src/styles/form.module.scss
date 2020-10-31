@@ -1,0 +1,21 @@
+.form {
+  .input {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #1a202c;
+    border: 1px solid dodgerblue;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+    padding: 0.4rem 0.5rem;
+    outline: none;
+    width: 100%;
+
+    &::placeholder {
+      font-family: "Lato", sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      color: #718096;
+    }
+  }
+}
