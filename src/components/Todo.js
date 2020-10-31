@@ -19,7 +19,7 @@ const Todo = ({ todo, onUpdateTodo }) => {
         checked={todo.isCompleted}
       />
 
-      <label>{todo.description}</label>
+      <label className={styles.label}>{todo.description}</label>
     </li>
   );
 };
