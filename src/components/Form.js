@@ -42,10 +42,8 @@ const Form = ({
         </div>
         <div className={styles.actions}>
           <div className={styles.buttonsContainer}>
-            <Button isPrimary={true} type="submit">
-              {btnName}
-            </Button>
-            <Button isPrimary={false} type="button" onClick={handleCancelClick}>
+            <Button isPrimary={true}>{btnName}</Button>
+            <Button isPrimary={false} onClick={handleCancelClick}>
               Cancel
             </Button>
           </div>
