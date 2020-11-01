@@ -9,6 +9,9 @@ const Button = ({ children, isPrimary, onClick = null }) => {
   }
 
   return (
+    // FIXME: How to solve 'Form submission canceled because the form is not
+    // connected' warning
+    // I'm always setting an onClick to a submit type button
     <button
       className={`${styles.btn} ${
         isPrimary ? styles.primaryBtn : styles.secondaryBtn

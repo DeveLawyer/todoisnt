@@ -2,7 +2,13 @@ import React from "react";
 import styles from "../styles/form.module.scss";
 import Button from "./Button";
 
-const Form = ({ onHandleSubmit, onChangeDisplay, btnName }) => {
+const Form = ({
+  todo,
+  onHandleSubmit,
+  onChangeDisplay,
+  onDeleteChange,
+  btnName,
+}) => {
   function handleFormSubmit(event) {
     onHandleSubmit(event);
     onChangeDisplay(false);
@@ -10,6 +16,11 @@ const Form = ({ onHandleSubmit, onChangeDisplay, btnName }) => {
 
   function handleCancelClick() {
     onChangeDisplay(false);
+  }
+
+  // FIXME: refactor this with Context API. Now: MainContainer -> Todo -> Form
+  function handleDeleteClick() {
+    onDeleteChange(todo.id);
   }
 
   return (
@@ -29,13 +40,20 @@ const Form = ({ onHandleSubmit, onChangeDisplay, btnName }) => {
             required
           />
         </div>
-        <div>
-          <Button isPrimary={true} type="submit">
-            {btnName}
-          </Button>
-          <Button isPrimary={false} type="button" onClick={handleCancelClick}>
-            Cancel
-          </Button>
+        <div className={styles.actions}>
+          <div className={styles.buttonsContainer}>
+            <Button isPrimary={true} type="submit">
+              {btnName}
+            </Button>
+            <Button isPrimary={false} type="button" onClick={handleCancelClick}>
+              Cancel
+            </Button>
+          </div>
+          {btnName === "Update" && (
+            <div onClick={handleDeleteClick}>
+              <i className="fas fa-trash-alt"></i>
+            </div>
+          )}
         </div>
       </form>
     </>

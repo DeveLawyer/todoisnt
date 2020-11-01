@@ -53,6 +53,12 @@ const MainContainer = () => {
     setTodos(newTodos);
   }
 
+  function deleteTodo(id) {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+
+    setTodos(newTodos);
+  }
+
   function displayTodos(status) {
     return todos
       .filter((filteredTodo) =>
@@ -64,6 +70,7 @@ const MainContainer = () => {
           todo={todo}
           onToggleChange={toggleTodo}
           onDescriptionChange={updateTodo}
+          onDeleteChange={deleteTodo}
         />
       ));
   }

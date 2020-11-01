@@ -2,7 +2,12 @@ import React from "react";
 import styles from "../styles/todo.module.scss";
 import Form from "./Form";
 
-const Todo = ({ todo, onToggleChange, onDescriptionChange }) => {
+const Todo = ({
+  todo,
+  onToggleChange,
+  onDescriptionChange,
+  onDeleteChange,
+}) => {
   const [displayForm, setDisplayForm] = React.useState(false);
 
   function handleChange() {
@@ -27,6 +32,8 @@ const Todo = ({ todo, onToggleChange, onDescriptionChange }) => {
           btnName="Update"
           onHandleSubmit={handleTodoSubmit}
           onChangeDisplay={setDisplayForm}
+          todo={todo}
+          onDeleteChange={onDeleteChange}
         />
       ) : (
         <li
