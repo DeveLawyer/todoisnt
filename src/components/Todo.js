@@ -22,7 +22,7 @@ const Todo = ({ todo, onToggleChange, onDescriptionChange }) => {
 
   return (
     <>
-      {displayForm ? (
+      {displayForm && !todo.isCompleted ? (
         <Form
           btnName="Update"
           onHandleSubmit={handleTodoSubmit}
