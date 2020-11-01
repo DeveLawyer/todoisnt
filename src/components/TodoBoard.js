@@ -9,7 +9,6 @@ const TodoBoard = ({ todos, onCreateChange, children }) => {
 
   function handleTodoSubmit(event) {
     event.preventDefault();
-
     const { actualTodo } = event.target.elements;
 
     onCreateChange(todoId, actualTodo.value);

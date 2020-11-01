@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../styles/button.module.scss";
 
 const Button = ({ children, isPrimary, onClick = null }) => {
+  // 'Cancel' button has an onClic; buttons type submit doesn't
   function handleClick() {
     if (!onClick) return;
     onClick();

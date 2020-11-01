@@ -12,10 +12,10 @@ const DoneBoard = ({ children }) => {
           className={styles.completedBtn}
           onClick={() => setHidden(!hidden)}
         >
-          {hidden ? "Show completed" : "Hide completed"}
+          {hidden ? "Show completed" : "Hide"}
         </button>
       </div>
-      <div className={hidden ? styles.hiddenContainer : null}>
+      <div className={hidden && styles.hiddenContainer}>
         <TodoList>{children}</TodoList>
       </div>
     </div>

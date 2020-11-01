@@ -7,7 +7,6 @@ import Todo from "./Todo";
 const MainContainer = () => {
   const [todos, setTodos] = React.useState([]);
 
-  // Create a new todo
   function createTodo(id, description, isCompleted = false) {
     const newTodo = {
       id,
@@ -54,7 +53,6 @@ const MainContainer = () => {
     setTodos(newTodos);
   }
 
-  // TODO: insertar esto en un useEffect (?)
   function displayTodos(status) {
     return todos
       .filter((filteredTodo) =>

@@ -15,7 +15,6 @@ const Todo = ({ todo, onToggleChange, onDescriptionChange }) => {
 
   function handleTodoSubmit(event) {
     event.preventDefault();
-
     const { actualTodo } = event.target.elements;
 
     onDescriptionChange(todo.id, actualTodo.value);
@@ -31,9 +30,7 @@ const Todo = ({ todo, onToggleChange, onDescriptionChange }) => {
         />
       ) : (
         <li
-          className={`${styles.listItem} ${
-            todo.isCompleted ? styles.isDone : null
-          }`}
+          className={`${styles.listItem} ${todo.isCompleted && styles.isDone}`}
         >
           <input
             type="checkbox"
