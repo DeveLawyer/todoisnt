@@ -2,21 +2,20 @@ import React from "react";
 import styles from "../styles/todo.module.scss";
 import Form from "./Form";
 
-const Todo = ({ todo, onToggleChange, onTodosChange, onDescriptionChange }) => {
-  // FIXME: estoy duplicando este state
+const Todo = ({ todo, onToggleChange, onDescriptionChange }) => {
   const [displayForm, setDisplayForm] = React.useState(false);
 
   function handleChange() {
     onToggleChange(todo.id);
   }
 
-  // FIXME: estoy duplicando esta fx
   function handleClick() {
     setDisplayForm(true);
   }
 
   function handleTodoSubmit(event) {
     event.preventDefault();
+
     const { actualTodo } = event.target.elements;
 
     onDescriptionChange(todo.id, actualTodo.value);

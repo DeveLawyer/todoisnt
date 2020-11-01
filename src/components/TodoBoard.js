@@ -3,22 +3,17 @@ import TodoList from "./TodoList";
 import Form from "./Form";
 import styles from "../styles/todo-board.module.scss";
 
-const TodoBoard = ({ todos, onTodosChange, children }) => {
+const TodoBoard = ({ todos, onCreateChange, children }) => {
   const [displayForm, setDisplayForm] = React.useState(false);
   const [todoId, setTodoId] = React.useState(1);
 
   function handleTodoSubmit(event) {
     event.preventDefault();
-    // TODO: extraer una fx createTodo a MainContainer
+
     const { actualTodo } = event.target.elements;
 
-    const newTodo = {
-      id: todoId,
-      description: actualTodo.value,
-      isCompleted: false,
-    };
+    onCreateChange(todoId, actualTodo.value);
 
-    onTodosChange([...todos, newTodo]);
     setTodoId(todoId + 1);
   }
 

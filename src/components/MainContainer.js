@@ -7,11 +7,18 @@ import Todo from "./Todo";
 const MainContainer = () => {
   const [todos, setTodos] = React.useState([]);
 
-  function onTodosChange(todos) {
-    setTodos(todos);
+  // Create a new todo
+  function createTodo(id, description, isCompleted = false) {
+    const newTodo = {
+      id,
+      description,
+      isCompleted,
+    };
+
+    setTodos([...todos, newTodo]);
   }
 
-  // Updates todo.isCompleted property and todos state
+  // Toggles todo.isCompleted property
   function toggleTodo(id) {
     const newTodos = todos.map((todo) => {
       if (id === todo.id) {
@@ -29,7 +36,7 @@ const MainContainer = () => {
     setTodos(newTodos);
   }
 
-  // Updates todo.description property and todos state
+  // Updates todo.description property
   function updateTodo(id, newDescription) {
     const newTodos = todos.map((todo) => {
       if (id === todo.id) {
@@ -47,6 +54,7 @@ const MainContainer = () => {
     setTodos(newTodos);
   }
 
+  // TODO: insertar esto en un useEffect (?)
   function displayTodos(status) {
     return todos
       .filter((filteredTodo) =>
@@ -57,7 +65,6 @@ const MainContainer = () => {
           key={todo.id}
           todo={todo}
           onToggleChange={toggleTodo}
-          onTodosChange={onTodosChange}
           onDescriptionChange={updateTodo}
         />
       ));
@@ -66,7 +73,7 @@ const MainContainer = () => {
   return (
     <main className={styles.mainContainer}>
       <div className={styles.todosContainer}>
-        <TodoBoard todos={todos} onTodosChange={onTodosChange}>
+        <TodoBoard todos={todos} onCreateChange={createTodo}>
           {displayTodos("todo")}
         </TodoBoard>
 
