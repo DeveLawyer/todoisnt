@@ -15,7 +15,7 @@ const DoneBoard = ({ children }) => {
           {hidden ? "Show completed" : "Hide"}
         </button>
       </div>
-      <div className={hidden && styles.hiddenContainer}>
+      <div className={hidden ? styles.hiddenContainer : undefined}>
         <TodoList>{children}</TodoList>
       </div>
     </div>
