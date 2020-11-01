@@ -29,19 +29,39 @@ const MainContainer = () => {
     setTodos(newTodos);
   }
 
+  // Updates todo.description property and todos state
+  function updateTodo(id, newDescription) {
+    const newTodos = todos.map((todo) => {
+      if (id === todo.id) {
+        const updatedTodo = {
+          ...todo,
+          description: newDescription,
+        };
+
+        return updatedTodo;
+      }
+
+      return todo;
+    });
+
+    setTodos(newTodos);
+  }
+
   function displayTodos(status) {
     return todos
       .filter((filteredTodo) =>
         status === "done" ? filteredTodo.isCompleted : !filteredTodo.isCompleted
       )
       .map((todo) => (
-        <Todo key={todo.id} todo={todo} onToggleChange={toggleTodo} />
+        <Todo
+          key={todo.id}
+          todo={todo}
+          onToggleChange={toggleTodo}
+          onTodosChange={onTodosChange}
+          onDescriptionChange={updateTodo}
+        />
       ));
   }
-
-  // function updateTodo(id) {
-  //   console.log()
-  // }
 
   return (
     <main className={styles.mainContainer}>

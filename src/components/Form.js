@@ -23,9 +23,9 @@ const Form = ({ onHandleSubmit, onChangeDisplay, btnName }) => {
           <input
             className={styles.input}
             type="text"
-            aria-label="new todo input"
+            aria-label="todo input"
             placeholder="Write a todo..."
-            id="todo"
+            id="actualTodo"
             required
           />
         </div>

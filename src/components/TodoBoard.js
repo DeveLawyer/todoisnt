@@ -9,11 +9,12 @@ const TodoBoard = ({ todos, onTodosChange, children }) => {
 
   function handleTodoSubmit(event) {
     event.preventDefault();
-    const { todo } = event.target.elements;
+    // TODO: extraer una fx createTodo a MainContainer
+    const { actualTodo } = event.target.elements;
 
     const newTodo = {
       id: todoId,
-      description: todo.value,
+      description: actualTodo.value,
       isCompleted: false,
     };
 
