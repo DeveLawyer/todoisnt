@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+
+  .title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .addBtn {
+    background: transparent;
+    border: none;
+    color: #2d3748;
+    font-family: "Lato", sans-serif;
+    font-weight: normal;
+    font-size: 1.1rem;
+    cursor: pointer;
+
+    .icon {
+      margin-right: 0.5rem;
+    }
+  }
+}

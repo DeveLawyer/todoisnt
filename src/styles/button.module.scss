@@ -1,0 +1,26 @@
+.btn {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  margin-right: 3px;
+}
+
+.primaryBtn {
+  background: #2d3748;
+  color: #fff;
+  border-radius: 0.25rem;
+
+  &:hover,
+  &:focus {
+    background: dodgerblue;
+  }
+}
+
+.secondaryBtn {
+  background: transparent;
+  color: #2d3748;
+}

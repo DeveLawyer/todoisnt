@@ -1,0 +1,20 @@
+@import-normalize;
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 2rem;
+  background-color: whitesmoke;
+  color: #2d3748;
+
+  box-sizing: border-box;
+}

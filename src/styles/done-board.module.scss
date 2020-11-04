@@ -1,0 +1,21 @@
+.doneContainer {
+  .btnContainer {
+    text-align: right;
+
+    .completedBtn {
+      background: transparent;
+      border: none;
+      color: #383a3f;
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 2rem 0;
+      padding: 0.5rem 0;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+
+  .hiddenContainer {
+    display: none;
+  }
+}
